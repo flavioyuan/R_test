@@ -20,6 +20,10 @@ petr4_df <- le_dado(
   "/home/flavioyuan/Documentos/R/Projetos/Econometric_models/data/stocks.xlsx",
   "PETR4")
 
+bvsp_df <- le_dado(
+  "/home/flavioyuan/Documentos/R/Projetos/Econometric_models/data/stocks.xlsx",
+  "BVSP")
+
 ggplot() +
   labs(
     title = "Cotacoes",
@@ -27,10 +31,14 @@ ggplot() +
     x = "Data",
     y = "Cotação"
   ) +
+  scale_y_continuous(trans = "log")+
   geom_line(data = petr4_df,
             mapping = aes(x = Data, y = Close)
           ) +
   geom_line(data = divo11_df,
             mapping = aes(x = Data, y = Close),
-            color="red"
+            color="red") +
+  geom_line(data = bvsp_df,
+            mapping = aes(x = Data, y = Close),
+            color="blue"
   )
