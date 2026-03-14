@@ -42,8 +42,8 @@ ggplot() +
 
 p1 <- ggplot() +
   labs(
-    title = "Cotacoes",
-    subtitle = "Serie temporal",
+    title = "DIVO",
+    subtitle = "2020 - Hoje",
     x = "Data",
     y = "Cotação"
   ) +
@@ -53,8 +53,8 @@ p1 <- ggplot() +
 
 p2 <- ggplot() +
   labs(
-    title = "Cotacoes",
-    subtitle = "Serie temporal",
+    title = "PETR4",
+    subtitle = "2020 - Hoje",
     x = "Data",
     y = "Cotação"
   ) +
