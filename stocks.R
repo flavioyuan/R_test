@@ -1,6 +1,7 @@
 library(ggplot2)
 library(tidyverse)
 library(readxl)
+library(patchwork)
 
 le_dado <- function(file, sheet_name) {
   
@@ -37,8 +38,32 @@ ggplot() +
           ) +
   geom_line(data = divo11_df,
             mapping = aes(x = Data, y = Close),
-            color="red") +
-  geom_line(data = bvsp_df,
+            color="red")
+
+p1 <- ggplot() +
+  labs(
+    title = "Cotacoes",
+    subtitle = "Serie temporal",
+    x = "Data",
+    y = "Cotação"
+  ) +
+  geom_line(data = divo11_df,
             mapping = aes(x = Data, y = Close),
-            color="blue"
-  )
+            color="red")
+
+p2 <- ggplot() +
+  labs(
+    title = "Cotacoes",
+    subtitle = "Serie temporal",
+    x = "Data",
+    y = "Cotação"
+  ) +
+  geom_line(data = petr4_df,
+            mapping = aes(x = Data, y = Close),
+            color = "blue")
+
+# Using patchwork to plot side by side
+p1 + p2
+
+# Arrange vertically
+p1 / p2
